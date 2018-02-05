@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "168317626435",
+    "firebase_url": "https://kramah-a8f80.firebaseio.com",
+    "project_id": "kramah-a8f80",
+    "storage_bucket": "kramah-a8f80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168317626435:android:c0ac8fac90b1ab20",
+        "android_client_info": {
+          "package_name": "com.example.anirban.kramah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168317626435-m20dqkcp8m4qa6ersljta9ffaotivm63.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.anirban.kramah",
+            "certificate_hash": "43d18455ef27503eaeb9ed530b6bb39590d3764e"
+          }
+        },
+        {
+          "client_id": "168317626435-2a7o05ntr6opg9bd89l504fr1l8ueqmc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ1Pi_xDNhyI65Xwhy_I7wQVP7yNXeMQw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168317626435-2a7o05ntr6opg9bd89l504fr1l8ueqmc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
