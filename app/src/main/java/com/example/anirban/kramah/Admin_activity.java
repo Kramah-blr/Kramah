@@ -18,6 +18,7 @@ import android.widget.Button;
 public class Admin_activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Button logo1;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
