@@ -49,7 +49,7 @@ public class Admin_Login extends AppCompatActivity {
                                         if (passdataSnapshot.getValue().toString().equals(password)) {
                                             Toast.makeText(Admin_Login.this, "Successfully Login", Toast.LENGTH_LONG).show();
 
-                                            Intent intent = new Intent(Admin_Login.this, Admin_activity.class);
+                                            Intent intent = new Intent(Admin_Login.this, AdminPage.class);
                                             startActivity(intent);
                                         } else {
                                             Toast.makeText(Admin_Login.this, "Wrong Password,Try Again", Toast.LENGTH_LONG).show();

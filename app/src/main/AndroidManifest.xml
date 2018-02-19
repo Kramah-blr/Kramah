@@ -23,11 +23,8 @@
         <activity android:name=".Forgot_pass_otp" />
         <activity android:name=".Forgot_password" />
         <activity android:name=".New_password" />
-        <activity
-            android:name=".Admin_activity"
-            android:label="@string/title_activity_admin_activity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Logo_content"></activity>
+        <activity android:name=".Logo_content" />
+        <activity android:name=".AdminPage"></activity>
     </application>
 
 </manifest>

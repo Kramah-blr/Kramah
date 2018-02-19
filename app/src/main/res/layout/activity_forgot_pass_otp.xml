@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/background_light"
+
         android:ems="10"
         android:hint="Enter Four Digit OTP"
         android:inputType="phone"
@@ -27,7 +27,7 @@
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="299dp"
+        android:layout_width="311dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
