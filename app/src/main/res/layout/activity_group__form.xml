@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.anirban.kramah.superAdmin.Group_Form"
+android:layout_margin="20dp">
+
+    <ImageView
+        android:id="@+id/ShowImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/ButtonChooseImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/ShowImageView"
+        android:layout_marginStart="36dp"
+
+        android:layout_toEndOf="@+id/ShowImageView"
+        android:background="@drawable/gallery"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <EditText
+        android:id="@+id/ImageNameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ShowImageView"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:hint="Enter Group Name Here"
+        android:backgroundTint="@color/ic_launcher_background"
+        />
+
+    <EditText
+        android:id="@+id/img_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ImageNameEditText"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter ID"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:backgroundTint="@color/ic_launcher_background"/>
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_id"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter Group Owner Email"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:backgroundTint="@color/ic_launcher_background"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter Group Owner Password"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:backgroundTint="@color/ic_launcher_background"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/password"
+        android:ems="10"
+        android:hint="Enter Group Owner Phone"
+        android:maxLength="10"
+        android:gravity="center"
+        android:inputType="phone"
+        android:backgroundTint="@color/ic_launcher_background"/>
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/phone"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Group Owner Name"
+        android:inputType="textPersonName"
+        android:backgroundTint="@color/ic_launcher_background"/>
+
+    <Spinner
+        android:id="@+id/role"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ButtonChooseImage"
+        android:layout_below="@+id/name"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/ButtonUploadImage"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/red_submit_button" />
+
+
+</RelativeLayout>

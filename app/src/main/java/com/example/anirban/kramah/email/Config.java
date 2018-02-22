@@ -1,4 +1,4 @@
-package com.example.anirban.kramah;
+package com.example.anirban.kramah.email;
 
 /**
  * Created by anirban on 23/1/18.

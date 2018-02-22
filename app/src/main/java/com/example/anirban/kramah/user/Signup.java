@@ -1,4 +1,4 @@
-package com.example.anirban.kramah;
+package com.example.anirban.kramah.user;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.anirban.kramah.R;
+import com.example.anirban.kramah.email.SendMail;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.Attributes;
 
 public class Signup extends AppCompatActivity {
 
@@ -36,6 +39,19 @@ public class Signup extends AppCompatActivity {
         final DatabaseReference loginRef=root.child("Login");
 
         singup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putString("Name", name.getText().toString());
+                bundle.putString("Phone", phone.getText().toString());
+                bundle.putString("Password", pass.getText().toString());
+                bundle.putString("Email", email.getText().toString());
+                Intent intent=new Intent(Signup.this,GridViewImageDisplay.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        /*singup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Map<String, Object> loginUpdates = new HashMap<>();
@@ -61,7 +77,7 @@ public class Signup extends AppCompatActivity {
                 SendMail sm = new SendMail(Signup.this, input.toString(), "[Kramah] Welcome to Kramah", msg);
                 sm.execute();
             }
-        });
+        });*/
 
     }
 }

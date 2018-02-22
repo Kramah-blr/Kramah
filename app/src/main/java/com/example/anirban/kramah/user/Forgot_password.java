@@ -1,4 +1,4 @@
-package com.example.anirban.kramah;
+package com.example.anirban.kramah.user;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.anirban.kramah.R;
+import com.example.anirban.kramah.email.SendMail;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

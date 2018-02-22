@@ -16,15 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Admin_Login" />
-        <activity android:name=".Signup" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Login" />
-        <activity android:name=".Forgot_pass_otp" />
-        <activity android:name=".Forgot_password" />
-        <activity android:name=".New_password" />
-        <activity android:name=".Logo_content" />
-        <activity android:name=".AdminPage"></activity>
+        <activity android:name=".superAdmin.Admin_Login" />
+        <activity android:name=".user.Signup" />
+        <activity android:name=".user.MainActivity" />
+        <activity android:name=".user.Login" />
+        <activity android:name=".user.Forgot_pass_otp" />
+        <activity android:name=".user.Forgot_password" />
+        <activity android:name=".user.New_password" />
+        <activity android:name=".superAdmin.AdminPage" />
+        <activity android:name=".superAdmin.Group_Form" />
+        <activity android:name=".groupadmin.Gr_admin_login" />
+        <activity
+            android:name=".groupadmin.Group_Admin_Activity"
+            android:label="@string/title_activity_group__admin_"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".user.GridViewImageDisplay"></activity>
     </application>
 
 </manifest>

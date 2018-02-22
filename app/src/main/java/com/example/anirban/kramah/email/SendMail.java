@@ -1,4 +1,4 @@
-package com.example.anirban.kramah;
+package com.example.anirban.kramah.email;
 
 import android.app.ProgressDialog;
 import android.content.Context;

@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_admin_activity"
+        layout="@layout/app_bar_group__admin_"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_admin_activity"
-        app:menu="@menu/activity_admin_activity_drawer" />
+        app:headerLayout="@layout/nav_header_group__admin_"
+        app:menu="@menu/activity_group__admin_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

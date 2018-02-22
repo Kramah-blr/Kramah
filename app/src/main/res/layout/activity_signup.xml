@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anirban.kramah.Signup">
+    tools:context="com.example.anirban.kramah.user.Signup">
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -26,7 +26,7 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="237dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -44,7 +44,7 @@
 
     <EditText
         android:id="@+id/phone"
-        android:layout_width="237dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -62,7 +62,7 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="237dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -80,7 +80,7 @@
 
     <Button
         android:id="@+id/Signup1"
-        android:layout_width="233dp"
+        android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
