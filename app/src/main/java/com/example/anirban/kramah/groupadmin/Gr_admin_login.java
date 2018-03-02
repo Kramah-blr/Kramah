@@ -29,13 +29,13 @@ public class Gr_admin_login extends AppCompatActivity {
         login=findViewById(R.id.gr_login);
 
 
-        final DatabaseReference root= FirebaseDatabase.getInstance().getReference();
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String username=phn.getText().toString();
                 final String password=pass.getText().toString();
-
+                final DatabaseReference root= FirebaseDatabase.getInstance().getReference();
                 root.child("Group_Admin_Info").orderByKey().addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -50,9 +50,10 @@ public class Gr_admin_login extends AppCompatActivity {
                                             Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_LONG).show();
                                             Bundle b=new Bundle();
                                             b.putString("id",username);
-                                            Intent intent = new Intent(getApplicationContext(), Group_Admin_Activity.class);
+                                            Intent intent = new Intent(Gr_admin_login.this, Group_Admin_Activity.class);
                                             intent.putExtras(b);
                                             startActivity(intent);
+
                                         } else {
                                             Toast.makeText(getApplicationContext(), "Wrong Password,Try Again", Toast.LENGTH_LONG).show();
                                         }

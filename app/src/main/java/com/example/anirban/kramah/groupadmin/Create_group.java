@@ -37,8 +37,8 @@ public class Create_group extends AppCompatActivity implements AdapterView.OnIte
 
         // Spinner click listener
         time.setOnItemSelectedListener(Create_group.this);
+        // Spinner Drop down elementstime.getKey().toString()
 
-        // Spinner Drop down elements
         final List<String> categories = new ArrayList<String>();
         categories.add("Morning");
         categories.add("Noon");
@@ -68,7 +68,8 @@ public class Create_group extends AppCompatActivity implements AdapterView.OnIte
                 Map<String, Object> grpUpdates = new HashMap<>();
                 grpUpdates.put(batch, batch);
                 //grpUpdates.put("ID",sub_grp_id);
-                AdminRef.child(phn).child("Time").updateChildren(grpUpdates);
+                AdminRef.child(phn).child("Time").setValue(grpUpdates);
+                root.child("Time/"+batch+"/"+Group_Admin_Activity.gad.getName()).setValue(Group_Admin_Activity.gad.getName());
             }
 
         });

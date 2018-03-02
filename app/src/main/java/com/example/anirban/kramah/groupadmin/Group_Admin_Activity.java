@@ -13,13 +13,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.anirban.kramah.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Group_Admin_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Bundle b;
+    public static group_admin_data gad = new group_admin_data();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,9 @@ public class Group_Admin_Activity extends AppCompatActivity
         setTitle("Admin Activity");
 
         b= getIntent().getExtras();
+        DatabaseReference root= FirebaseDatabase.getInstance().getReference().child("Group_Admin_Info/"+b.getString("id"));
+        userdata(root);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +57,60 @@ public class Group_Admin_Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void userdata(final DatabaseReference root) {
+        root.orderByKey().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+//
+                    if(ds.getKey().toString().equals("Time")){
+                        root.child(ds.getKey().toString()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot time : dataSnapshot.getChildren() ){
+                                    //Toast.makeText(getApplicationContext(),time.getKey().toString(),Toast.LENGTH_SHORT).show();
+                                    gad.setTime(time.getKey().toString());
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+                    if(ds.getKey().toString().equals("groupName")){
+                        root.child(ds.getKey().toString()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                gad.setName(dataSnapshot.getValue().toString());
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+                    if(ds.getKey().toString().equals("grpEmail")){}
+                    if(ds.getKey().toString().equals("grpID")){}
+                    if(ds.getKey().toString().equals("grppass")){}
+                    if(ds.getKey().toString().equals("grpphn")){}
+                    if(ds.getKey().toString().equals("grprole")){}
+                    if(ds.getKey().toString().equals("imageURL")){}
+                    if(ds.getKey().toString().equals("ownername")){}
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
