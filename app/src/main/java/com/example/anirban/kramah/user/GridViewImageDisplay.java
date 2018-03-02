@@ -3,6 +3,7 @@ package com.example.anirban.kramah.user;
 import android.app.ProgressDialog;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,7 @@ public class GridViewImageDisplay extends AppCompatActivity {
     private GridView.LayoutParams gl;
 
     Bundle b;
-    String userName, phone, pass, email, grp_name;
+    String userName, name,phone, pass, email, grp_name;
 
 
     @Override
@@ -50,7 +51,8 @@ public class GridViewImageDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_view_image_display);
         b = getIntent().getExtras();
-        userName = b.getString("Name");
+        userName = b.getString("UserName");
+        name=b.getString("Name");
         phone = b.getString("Phone");
         pass = b.getString("Password");
         email = b.getString("Email");
@@ -97,6 +99,7 @@ public class GridViewImageDisplay extends AppCompatActivity {
 
             }
 
+
         });
         final DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference loginRef = root.child("Login");
@@ -107,11 +110,12 @@ public class GridViewImageDisplay extends AppCompatActivity {
                 grp_name = list.get(i).getGroupName().toString();
                 //Toast.makeText(getApplicationContext(),ownerName+phone+email+pass+name,Toast.LENGTH_SHORT).show();
                 Map<String, Object> loginUpdates = new HashMap<>();
+                loginUpdates.put("Phone",phone);
                 loginUpdates.put("Password", pass);
                 loginUpdates.put("Name", userName);
                 loginUpdates.put("Email", email);
                 loginUpdates.put("Group", grp_name);
-                loginRef.child(phone).updateChildren(loginUpdates);
+                loginRef.child(userName).updateChildren(loginUpdates);
 
                 Toast.makeText(GridViewImageDisplay.this, "Successfully Signup", Toast.LENGTH_LONG).show();
 
@@ -119,6 +123,7 @@ public class GridViewImageDisplay extends AppCompatActivity {
                 //Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 // startActivity(intent);
             }
+
         });
     }
 

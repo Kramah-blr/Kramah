@@ -1,5 +1,6 @@
 package com.example.anirban.kramah.groupadmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,13 +19,17 @@ import com.example.anirban.kramah.R;
 public class Group_Admin_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    Bundle b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group__admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Admin Activity");
 
+        b= getIntent().getExtras();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,9 +87,14 @@ public class Group_Admin_Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.Create_grp) {
+            Bundle bundle=new Bundle();
+            Intent intent=new Intent(getApplicationContext(),Create_group.class);
+            bundle.putString("id",b.getString("id"));
+            intent.putExtras(bundle);
+            startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.Attendence) {
 
         } else if (id == R.id.nav_slideshow) {
 

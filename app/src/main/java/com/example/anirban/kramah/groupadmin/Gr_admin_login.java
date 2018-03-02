@@ -48,8 +48,10 @@ public class Gr_admin_login extends AppCompatActivity {
                                     public void onDataChange(DataSnapshot passdataSnapshot) {
                                         if (passdataSnapshot.getValue().toString().equals(password)) {
                                             Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_LONG).show();
-
+                                            Bundle b=new Bundle();
+                                            b.putString("id",username);
                                             Intent intent = new Intent(getApplicationContext(), Group_Admin_Activity.class);
+                                            intent.putExtras(b);
                                             startActivity(intent);
                                         } else {
                                             Toast.makeText(getApplicationContext(), "Wrong Password,Try Again", Toast.LENGTH_LONG).show();

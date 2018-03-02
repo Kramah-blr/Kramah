@@ -10,15 +10,18 @@ import android.widget.Toast;
 
 import com.example.anirban.kramah.R;
 import com.example.anirban.kramah.email.SendMail;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.jar.Attributes;
 
 public class Signup extends AppCompatActivity {
-
+    private EditText usrName;
     private EditText name;
     private EditText email;
     private EditText phone;
@@ -28,7 +31,7 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
+        usrName=(EditText)findViewById(R.id.usrname);
         name=(EditText) findViewById(R.id.name);
         email=(EditText) findViewById(R.id.email);
         phone=(EditText) findViewById(R.id.phone);
@@ -41,14 +44,35 @@ public class Signup extends AppCompatActivity {
         singup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle=new Bundle();
-                bundle.putString("Name", name.getText().toString());
-                bundle.putString("Phone", phone.getText().toString());
-                bundle.putString("Password", pass.getText().toString());
-                bundle.putString("Email", email.getText().toString());
-                Intent intent=new Intent(Signup.this,GridViewImageDisplay.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                final String username=usrName.getText().toString();
+                root.child("Login").orderByKey().addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            if (ds.getKey().equals(username)) {
+                                Toast.makeText(Signup.this,username+" Already Exist",Toast.LENGTH_LONG).show();
+
+                            } else {
+
+
+                                Bundle bundle = new Bundle();
+                                bundle.putString("UserName", usrName.getText().toString());
+                                bundle.putString("Name", name.getText().toString());
+                                bundle.putString("Phone", phone.getText().toString());
+                                bundle.putString("Password", pass.getText().toString());
+                                bundle.putString("Email", email.getText().toString());
+                                Intent intent = new Intent(Signup.this, GridViewImageDisplay.class);
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
         /*singup.setOnClickListener(new View.OnClickListener() {
