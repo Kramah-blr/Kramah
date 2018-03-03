@@ -69,7 +69,7 @@ public class Create_group extends AppCompatActivity implements AdapterView.OnIte
                 grpUpdates.put(batch, batch);
                 //grpUpdates.put("ID",sub_grp_id);
                 AdminRef.child(phn).child("Time").setValue(grpUpdates);
-                root.child("Time/"+batch+"/"+Group_Admin_Activity.gad.getName()).setValue(Group_Admin_Activity.gad.getName());
+                root.child("Time/"+batch+"/"+Group_Admin_Activity.gad.getName()).setValue(phn);
             }
 
         });

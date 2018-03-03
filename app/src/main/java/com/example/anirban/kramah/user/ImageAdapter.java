@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 
 import com.squareup.picasso.Picasso;
 
@@ -53,7 +52,7 @@ public class ImageAdapter extends BaseAdapter
         } else {
             imageView = (ImageView) convertView;
         }
-        Picasso.with(context).load(list.get(position).getImageURL()).into(imageView);
+        Picasso.with(context).load(list.get(position)).into(imageView);
         return imageView;
     }
 }

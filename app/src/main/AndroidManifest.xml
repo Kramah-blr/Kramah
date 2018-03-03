@@ -30,7 +30,9 @@
             android:name=".groupadmin.Group_Admin_Activity"
             android:label="@string/title_activity_group__admin_"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".user.GridViewImageDisplay" />
+        <activity android:name=".user.GridViewImageDisplay"
+            android:label="@string/title_activity_group__admin_"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".groupadmin.Create_group"></activity>
     </application>
 

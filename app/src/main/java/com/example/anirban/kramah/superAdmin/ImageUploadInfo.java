@@ -1,5 +1,7 @@
 package com.example.anirban.kramah.superAdmin;
 
+import java.util.ArrayList;
+
 /**
  * Created by anirban on 21/2/18.
  */
@@ -7,7 +9,7 @@ package com.example.anirban.kramah.superAdmin;
 public class ImageUploadInfo {
     public String groupName,grpID,grpEmail,grppass,grpphn,ownername,grprole;
     public String imageURL;
-
+    public ArrayList<String> gname= new ArrayList<String>();
 
     public ImageUploadInfo() {
 
@@ -22,8 +24,11 @@ public class ImageUploadInfo {
         this.grprole=role;
         this.imageURL= url;
     }
-    public String getGroupName() {
-        return groupName;
+    public void setGroupName(String name){
+        this.gname.add(name);
+    }
+    public ArrayList<String> getGroupName() {
+        return gname;
     }
     public String getGrpID(){return grpID;}
     public String getGrpEmail(){return grpEmail;}
