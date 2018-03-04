@@ -48,6 +48,7 @@ public class GridViewImageDisplay extends AppCompatActivity {
     String userName, name,phone, pass, email, grp_name;
     public int timeflag=0;
     public ImageUploadInfo imageUploadInfo;
+    ArrayAdapter<String> timeAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +74,9 @@ public class GridViewImageDisplay extends AppCompatActivity {
 
         // Setting up Firebase image upload folder path in databaseReference.
         // The path is already defined in MainActivity.
-               final DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference loginRef = root.child("Login");
+        final DatabaseReference groupRef = root.child("Group");
 
         gridimage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,10 +87,15 @@ public class GridViewImageDisplay extends AppCompatActivity {
                 Map<String, Object> loginUpdates = new HashMap<>();
                 loginUpdates.put("Phone",phone);
                 loginUpdates.put("Password", pass);
-                loginUpdates.put("Name", userName);
+                loginUpdates.put("Name", name);
                 loginUpdates.put("Email", email);
                 loginUpdates.put("Group", grp_name);
                 loginRef.child(userName).updateChildren(loginUpdates);
+                Map<String, Object> groupUpdates = new HashMap<>();
+                groupUpdates.put("Name", name);
+                groupUpdates.put("Email", email);
+                groupRef.child(grp_name+"/"+timeAdapter.getItem(timeflag)+"/"+userName).updateChildren(groupUpdates);
+
 
                 Toast.makeText(GridViewImageDisplay.this, "Successfully Signup", Toast.LENGTH_LONG).show();
 
@@ -120,7 +127,7 @@ public class GridViewImageDisplay extends AppCompatActivity {
         final AlertDialog.Builder builderSingle = new AlertDialog.Builder(GridViewImageDisplay.this);
         //builderSingle.setIcon(R.drawable.ic_launcher);
         builderSingle.setTitle("Select a time");
-        final ArrayAdapter<String> timeAdapter = new ArrayAdapter<String>(GridViewImageDisplay.this,android.R.layout.select_dialog_singlechoice);
+        timeAdapter = new ArrayAdapter<String>(GridViewImageDisplay.this,android.R.layout.select_dialog_singlechoice);
         timeAdapter.add("Morning");
         timeAdapter.add("Noon");
         timeAdapter.add("Afternoon");
@@ -130,14 +137,14 @@ public class GridViewImageDisplay extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, final int index) {
                 timeflag=index;
-                timeroot.child(timeAdapter.getItem(index)).orderByKey().addValueEventListener(new ValueEventListener() {
+                timeroot.child(timeAdapter.getItem(index)).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(final DataSnapshot ds : dataSnapshot.getChildren()){
                                 databaseReference = FirebaseDatabase.getInstance().getReference(Group_Form.Database_Path);
 
                                 // Adding Add Value Event Listener to databaseReference.
-                                databaseReference.child(ds.getKey()+"/imageURL").addValueEventListener(new ValueEventListener() {
+                                databaseReference.child(ds.getKey()+"/imageURL").addListenerForSingleValueEvent(new ValueEventListener() {
 
                                     @Override
                                     public void onDataChange(DataSnapshot snapshot) {

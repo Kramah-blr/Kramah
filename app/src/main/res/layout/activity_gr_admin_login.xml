@@ -18,7 +18,8 @@
         android:gravity="center"
         android:hint="Enter Phone Number"
         android:inputType="phone"
-        android:maxLength="10" />
+        android:maxLength="10"
+        android:text="9046814817"/>
 
     <EditText
         android:id="@+id/pass"
@@ -31,7 +32,8 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:text="1234"/>
 
     <Button
         android:id="@+id/gr_login"

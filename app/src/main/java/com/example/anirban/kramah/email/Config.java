@@ -5,6 +5,8 @@ package com.example.anirban.kramah.email;
  */
 
 public class Config {
-    public static final String EMAIL ="kramah.software.blr@gmail.com";
-    public static final String PASSWORD ="*********";
+//    public static final String EMAIL ="kramah.software.blr@gmail.com";
+//    public static final String PASSWORD ="*********";
+public static final String EMAIL ="incrediblebus8@gmail.com";
+    public static final String PASSWORD ="9046814817";
 }

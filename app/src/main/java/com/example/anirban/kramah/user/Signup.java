@@ -47,14 +47,52 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String username=usrName.getText().toString();
-
-                root.child("Login").orderByKey().addValueEventListener(new ValueEventListener() {
+//
+//                root.child("Login").orderByKey().addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+//                            forwork =0;
+//                            if(ds.getKey().toString().equals(username)){
+//                                flag=1;
+//                                Toast.makeText(getApplicationContext(),username+" already exist",Toast.LENGTH_SHORT).show();
+//                            }
+//                            if(flag!=1) {
+//                                flag=0;
+//                            }
+//
+//                        }
+//                        if(flag!=-1 && flag!=1 || forwork==-1){
+//                            Bundle bundle = new Bundle();
+//                            bundle.putString("UserName", usrName.getText().toString());
+//                            bundle.putString("Name", name.getText().toString());
+//                            bundle.putString("Phone", phone.getText().toString());
+//                            bundle.putString("Password", pass.getText().toString());
+//                            bundle.putString("Email", email.getText().toString());
+//                            Intent intent = new Intent(Signup.this, GridViewImageDisplay.class);
+//                            intent.putExtras(bundle);
+//                            startActivity(intent);
+//                            root.removeEventListener(this);
+//                        }
+//                        else{
+//                            flag=-1;
+//                            forwork = -1;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+                root.child("Login").orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
                             forwork =0;
                             if(ds.getKey().toString().equals(username)){
                                 flag=1;
+                                Toast.makeText(getApplicationContext(),username+" already exist",Toast.LENGTH_SHORT).show();
                             }
                             if(flag!=1) {
                                 flag=0;
@@ -71,11 +109,11 @@ public class Signup extends AppCompatActivity {
                             Intent intent = new Intent(Signup.this, GridViewImageDisplay.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
+                            root.removeEventListener(this);
                         }
                         else{
                             flag=-1;
                             forwork = -1;
-                            Toast.makeText(getApplicationContext(),username+" already exist",Toast.LENGTH_SHORT).show();
                         }
                     }
 

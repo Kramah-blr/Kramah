@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.anirban.kramah.R;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +35,7 @@ public class Group_Admin_Activity extends AppCompatActivity
         setContentView(R.layout.activity_group__admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setTitle("Admin Activity");
+        setTitle("Kramah");
 
         b= getIntent().getExtras();
         DatabaseReference root= FirebaseDatabase.getInstance().getReference().child("Group_Admin_Info/"+b.getString("id"));
@@ -60,7 +61,7 @@ public class Group_Admin_Activity extends AppCompatActivity
     }
 
     private void userdata(final DatabaseReference root) {
-        root.orderByKey().addValueEventListener(new ValueEventListener() {
+        root.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
@@ -96,7 +97,19 @@ public class Group_Admin_Activity extends AppCompatActivity
                         });
                     }
                     if(ds.getKey().toString().equals("grpEmail")){}
-                    if(ds.getKey().toString().equals("grpID")){}
+                    if(ds.getKey().toString().equals("grpID")){
+                        root.child(ds.getKey().toString()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                gad.setId(dataSnapshot.getValue().toString());
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
                     if(ds.getKey().toString().equals("grppass")){}
                     if(ds.getKey().toString().equals("grpphn")){}
                     if(ds.getKey().toString().equals("grprole")){}
@@ -111,6 +124,7 @@ public class Group_Admin_Activity extends AppCompatActivity
 
             }
         });
+
     }
 
     @Override
@@ -159,6 +173,8 @@ public class Group_Admin_Activity extends AppCompatActivity
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.Attendence) {
+            Intent intent=new Intent(getApplicationContext(),Attendence.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
