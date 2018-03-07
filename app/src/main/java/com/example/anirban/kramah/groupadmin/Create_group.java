@@ -63,12 +63,14 @@ public class Create_group extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 String sub_grp_id=sub_id.getText().toString();
                 String batch=String.valueOf(time.getSelectedItem());
+
                 //Toast.makeText(getApplicationContext(),sub_grp_id+"\n"+batch+"\n"+phn,Toast.LENGTH_SHORT).show();
 
                 Map<String, Object> grpUpdates = new HashMap<>();
                 grpUpdates.put(batch, batch);
                 //grpUpdates.put("ID",sub_grp_id);
-                AdminRef.child(phn).child("Time").setValue(grpUpdates);
+                AdminRef.child(phn).child("Time").updateChildren(grpUpdates);
+
                 root.child("Time/"+batch+"/"+Group_Admin_Activity.gad.getName()).setValue(phn);
             }
 

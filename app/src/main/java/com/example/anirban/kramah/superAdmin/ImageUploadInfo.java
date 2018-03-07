@@ -15,7 +15,7 @@ public class ImageUploadInfo {
 
     }
     public ImageUploadInfo(String grp_name,String id,String Email,String password,String phone,String name,String role, String url) {
-        this.groupName = grp_name;
+        this.groupName=grp_name;
         this.grpID=id;
         this.grpEmail=Email;
         this.grppass=password;
@@ -27,9 +27,10 @@ public class ImageUploadInfo {
     public void setGroupName(String name){
         this.gname.add(name);
     }
-    public ArrayList<String> getGroupName() {
+    public ArrayList<String> getGrpName() {
         return gname;
     }
+    public String getGroupName(){return groupName; }
     public String getGrpID(){return grpID;}
     public String getGrpEmail(){return grpEmail;}
     public String getGrppass(){return grppass;}

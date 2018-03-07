@@ -113,7 +113,7 @@ android:layout_margin="20dp">
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/red_submit_button" />
+        android:background="@drawable/submitbutton" />
 
 
 </RelativeLayout>

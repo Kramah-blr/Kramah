@@ -82,7 +82,7 @@ public class GridViewImageDisplay extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                grp_name = imageUploadInfo.getGroupName().get(i).toString();
+                grp_name = imageUploadInfo.getGrpName().get(i).toString();
                 //Toast.makeText(getApplicationContext(),grp_name,Toast.LENGTH_SHORT).show();
                 Map<String, Object> loginUpdates = new HashMap<>();
                 loginUpdates.put("Phone",phone);
