@@ -6,6 +6,6 @@ package com.example.anirban.kramah.email;
 
 public class Config {
     public static final String EMAIL ="kramah.software.blr@gmail.com";
-    public static final String PASSWORD ="kramah4321";
+    public static final String PASSWORD ="************";
 
 }
