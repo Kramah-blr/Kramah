@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ImageUploadInfo {
     public String groupName,grpID,grpEmail,grppass,grpphn,ownername,grprole;
     public String imageURL;
-    public ArrayList<String> gname= new ArrayList<String>();
+    //public ArrayList<String> gname= new ArrayList<String>();
 
     public ImageUploadInfo() {
 
@@ -24,12 +24,12 @@ public class ImageUploadInfo {
         this.grprole=role;
         this.imageURL= url;
     }
-    public void setGroupName(String name){
-        this.gname.add(name);
-    }
-    public ArrayList<String> getGrpName() {
-        return gname;
-    }
+//    public void setGroupName(String name){
+//        this.gname.add(name);
+//    }
+//    public ArrayList<String> getGrpName() {
+//        return gname;
+//    }
     public String getGroupName(){return groupName; }
     public String getGrpID(){return grpID;}
     public String getGrpEmail(){return grpEmail;}

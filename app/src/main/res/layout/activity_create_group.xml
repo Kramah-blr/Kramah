@@ -1,70 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.anirban.kramah.groupadmin.Create_group">
+    android:layout_height="match_parent">
+
 
     <EditText
         android:id="@+id/sub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_alignTop="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:backgroundTint="@color/ic_launcher_background"
         android:gravity="center"
         android:hint="Enter Sub Group ID"
-        android:backgroundTint="@color/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.084"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+    <TextView
+        android:id="@+id/starttime"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/sub"
+        android:layout_marginTop="22dp"
+        android:layout_toStartOf="@+id/starttimeicon"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="2dp"
+        android:text="Pick time"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
-    <Spinner
-        android:id="@+id/time"
-        android:layout_width="333dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+    <ImageButton
+        android:id="@+id/starttimeicon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/starttime"
+        android:layout_marginEnd="39dp"
+        android:layout_toStartOf="@+id/textView2"
+        android:background="@drawable/ic_access_time_black_24dp" />
+
+    <TextView
+        android:id="@+id/endtime"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/starttimeicon"
+        android:layout_toStartOf="@+id/endtimeicon"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="2dp"
+        android:text="Pick time"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/endtimeicon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/endtime"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/ic_access_time_black_24dp" />
+
+
+
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="50dp"
-        android:layout_height="25dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Time"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/endtime"
+        android:layout_alignBottom="@+id/endtime"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp"
+        android:layout_below="@+id/sub"
+        android:text="to"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <ng.max.slideview.SlideView
+        android:id="@+id/slideSave"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/starttime"
+        android:layout_marginTop="81dp"
+        app:sv_animateSlideText="true"
+        app:sv_buttonBackgroundColor="@color/mdtp_accent_color"
+        app:sv_buttonImage="@drawable/ic_save_black_24dp"
+        app:sv_buttonImageDisabled="@drawable/check"
+        app:sv_reverseSlide="false"
+        app:sv_slideBackgroundColor="@color/darkBlue"
+        app:sv_slideText="Swipe to Save"
+        app:sv_slideTextColor="@color/sv_button_color_default"
+        app:sv_slideTextSize="16sp" />
+
+
+</RelativeLayout>

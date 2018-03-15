@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="13dp"
+        android:orientation="vertical"
+        android:paddingBottom="55dp">
+
+        <ListView
+            android:id="@+id/sub_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:choiceMode="singleChoice"
+            android:gravity="left" />
+
+    </LinearLayout>
+
+
+
+        <ng.max.slideview.SlideView
+            android:id="@+id/Reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/linear"
+            android:layout_marginTop="81dp"
+            app:sv_animateSlideText="true"
+            app:sv_buttonBackgroundColor="@color/mdtp_accent_color"
+            app:sv_buttonImage="@drawable/ic_chevron_right_black_24dp"
+            app:sv_buttonImageDisabled="@drawable/check"
+            app:sv_reverseSlide="false"
+            app:sv_slideBackgroundColor="@color/darkBlue"
+            app:sv_slideText="Swipe to Registration"
+            app:sv_slideTextColor="@color/sv_button_color_default"
+            app:sv_slideTextSize="16sp" />
+
+
+
+</RelativeLayout>

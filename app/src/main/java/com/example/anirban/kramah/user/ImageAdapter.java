@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.anirban.kramah.superAdmin.ImageUploadInfo;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import static com.example.anirban.kramah.user.GridViewImageDisplay.list;
 
@@ -19,7 +22,7 @@ import static com.example.anirban.kramah.user.GridViewImageDisplay.list;
 public class ImageAdapter extends BaseAdapter
 {
     private Context context;
-    public ImageAdapter(Context c)
+    public ImageAdapter(Context c, List<ImageUploadInfo> list)
     {
         context = c;
     }
@@ -52,7 +55,7 @@ public class ImageAdapter extends BaseAdapter
         } else {
             imageView = (ImageView) convertView;
         }
-        Picasso.with(context).load(list.get(position)).into(imageView);
+        Picasso.with(context).load(list.get(position).getImageURL()).into(imageView);
         return imageView;
     }
 }

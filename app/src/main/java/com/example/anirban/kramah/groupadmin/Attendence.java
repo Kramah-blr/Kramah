@@ -204,6 +204,7 @@ public class Attendence extends AppCompatActivity implements DatePickerDialog.On
                      send_email_notification(name_list.get(i),email_list.get(i));
                     }if(checked.get(i)==true){
                         attendanceroot.child("Attendence/"+Group_Admin_Activity.gad.getName()+"/"+timeSelected+"/"+dateview.getText().toString()+"/"+id_list.get(i)+"/Status").setValue("P");
+                        Toast.makeText(Attendence.this,"Successfully taken attendence.",Toast.LENGTH_SHORT).show();
                     }
 
                 }
